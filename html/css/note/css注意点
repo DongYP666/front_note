@@ -1,0 +1,28 @@
+优先级
+内联样式 > 内部样式 > 外部样式 > 浏览器默认样式
+
+如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。
+
+例:
+外部样式表拥有针对 h3 选择器的三个属性：
+h3
+{
+    color:red;
+    text-align:left;
+    font-size:8pt;
+}
+
+而内部样式表拥有针对 h3 选择器的两个属性：
+h3
+{
+    text-align:right;
+    font-size:20pt;
+}
+
+假如拥有内部样式表的这个页面同时与外部样式表链接，那么 h3 得到的样式是：
+h3
+{
+    color:red;
+    text-align:right;
+    font-size:20pt;
+}

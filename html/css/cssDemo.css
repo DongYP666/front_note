@@ -1,0 +1,19 @@
+body {
+    background: #ddeeff url("../resource/img/moon.png") no-repeat right top fixed;
+    margin-right: 600px;
+}
+h1 {
+    color: #0099FF;
+    text-shadow: -2px -2px crimson;
+}
+p.test {
+    text-indent: 50px;
+    text-align: justify;
+    font: italic 16px "Times New Roman";
+}
+#box {
+    width: 25px;
+    margin: 25px;
+    border: solid 25px red;
+    padding: 25px;
+}

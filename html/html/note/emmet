@@ -1,0 +1,39 @@
+https://www.w3cplus.com/tools/emmet-cheat-sheet.html
+
+语法
+1.乘法: *
+缩写: ul>li*5
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+2.后代: >
+缩写: nav>ul>li
+<nav>
+    <ul>
+        <li></li>
+    </ul>
+</nav>
+
+3.兄弟: +
+缩写: div+p+bq
+<div></div>
+<p></p>
+<blockquote></blockquote>
+
+html
+缩写: !
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>

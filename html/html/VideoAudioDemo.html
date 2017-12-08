@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!--以上代码是一个注释，作用是在 IE 浏览器的版本小于 IE9 时将读取 html5.js 文件，并解析它-->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        document.createElement('myElement')
+    </script>
+    <style type="text/css">
+        /*为了能让旧版本的浏览器正确显示html5的这些元素，你可以设置 CSS 的 display 属性值为 block*/
+        header, section, footer, aside, nav, main, article, figure {
+            display: block;
+        }
+        myElement {
+            display: block;
+            background-color: #dddddd;
+            padding: 50px;
+            font-size: 20px;
+        }
+        .drag,.video,.audio {
+            border:1px solid #aaaaaa;
+        }
+        #div1,#div2 {
+            border:1px solid #aaaaaa;
+            width:350px;
+            height:70px;
+            padding:10px;
+        }
+    </style>
+
+</head>
+<body>
+    <myElement>我的第一个新元素</myElement>
+    <div class="drag" style="width: 29%;float: left">
+        <h1 align="center">一个简单的拖拽样例</h1>
+        <!--为了使元素可拖动，把 draggable 属性设置为 true; -->
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img id="moon" src="../resource/img/moon.png" alt="moon" draggable="true" ondragstart="drag(event)" width="350px" height="70px">
+        </div>
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+
+    <div class="video" style="width: 40%;float: left;">
+        <h1 align="center">一个简单的视频样例</h1>
+        <!--<video> 元素支持多个 <source> 元素. <source> 元素可以链接不同的视频文件。浏览器将使用第一个可识别的格式-->
+        <video id="video1" width="420">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4" type="video/mp4">
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.ogg" type="video/ogg">
+        </video>
+        <br/>
+        <button onclick="playPause()">播放/暂停</button>
+        <button onclick="makeBig()">放大</button>
+        <button onclick="makeSmall()">缩小</button>
+        <button onclick="makeNormal()">普通</button>
+    </div>
+
+    <div class="audio" style="width: 30%;float: left;">
+        <h1 align="center">一个简单的音频样例</h1>
+        <!--control 属性供添加播放、暂停和音量控件。-->
+        <audio controls>
+            <source src="http://www.runoob.com/try/demo_source/horse.ogg" type="audio/ogg">
+            <source src="http://www.runoob.com/try/demo_source/horse.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        function allowDrop(ev)
+        {
+            // preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+            ev.preventDefault();
+        }
+
+        <!--drag(event)，它规定了被拖动的数据-->
+        function drag(ev)
+        {
+            // dataTransfer.setData() 方法设置被拖数据的数据类型和值
+            ev.dataTransfer.setData("img",ev.target.id);
+        }
+
+        function drop(ev)
+        {
+            ev.preventDefault();
+            var data=ev.dataTransfer.getData("img");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+    <script>
+        var myVideo=document.getElementById("video1");
+
+        function playPause()
+        {
+            if (myVideo.paused)
+                myVideo.play();
+            else
+                myVideo.pause();
+        }
+
+        function makeBig()
+        {
+            myVideo.width=560;
+        }
+
+        function makeSmall()
+        {
+            myVideo.width=320;
+        }
+
+        function makeNormal()
+        {
+            myVideo.width=420;
+        }
+    </script>
+</body>
+</html>
