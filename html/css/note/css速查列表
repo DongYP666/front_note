@@ -76,3 +76,82 @@ outline	        在一个声明中设置所有的轮廓属性
 outline-color	设置轮廓的颜色
 outline-style	设置轮廓的样式
 outline-width	设置轮廓的宽度
+
+所有CSS 尺寸 (Dimension)属性
+height	    设置元素的高度。
+line-height	设置行高。
+max-height	设置元素的最大高度。
+max-width	设置元素的最大宽度。
+min-height	设置元素的最小高度。
+min-width	设置元素的最小宽度。
+width	    设置元素的宽度。
+
+visibility:hidden   可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。也就是说，该元素虽然被隐藏了，但仍然会影响布局。
+display:none        可以隐藏某个元素，且隐藏的元素不会占用任何空间。也就是说，该元素不但被隐藏了，而且该元素原本占用的空间也会从页面布局中消失。
+display:inline      在一行展示
+display:block       作为块级元素展示
+visibility:collapse 当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局。
+
+CSS Positioning(定位)
+元素可以使用的顶部，底部，左侧和右侧属性定位。然而，这些属性无法工作，除非是先设定position属性。
+static      即没有定位，静态定位的元素不会受到 top, bottom, left, right影响。
+relative    元素的位置相对于浏览器窗口是固定位置。
+fixed       相对定位元素的定位是相对其正常位置。
+absolute    绝对定位的元素的位置相对于最近的已定位父元素(该父级元素一定position:relative)，如果元素没有已定位的父元素，那么它的位置相对于<html>。
+
+CSS定位属性
+position	指定元素的定位类型
+left	    定义了定位元素左外边距边界与其包含块左边界之间的偏移。
+right	    定义了定位元素右外边距边界与其包含块右边界之间的偏移。
+top	        定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移。
+bottom	    定义了定位元素下外边距边界与其包含块下边界之间的偏移。
+clip	    剪辑一个绝对定位的元素。
+cursor	    显示光标移动到指定的类型。
+overflow    设置当元素的内容溢出其区域时发生的事情。
+overflow-y  指定如何处理顶部/底部边缘的内容溢出元素的内容区域。
+overflow-x  指定如何处理右边/左边边缘的内容溢出元素的内容区域。
+z-index	    设置元素的堆叠顺序	。
+
+重叠的元素   z-index属性指定了一个元素的堆叠顺序
+如果两个定位元素重叠，没有指定z - index，最后定位在HTML代码中的元素将被显示在最前面。
+
+CSS 中所有的浮动属性
+clear	指定不允许元素周围有浮动元素。
+float	指定一个盒子（元素）是否可以浮动
+
+伪类/元素
+:checked	            input:checked	        选择所有选中的表单元素
+:disabled	            input:disabled	        选择所有禁用的表单元素
+:empty	                p:empty	                选择所有没有子元素的p元素
+:enabled	            input:enabled	        选择所有启用的表单元素
+:first-of-type	        p:first-of-type	        选择每个父元素是p元素的第一个p子元素
+:in-range	            input:in-range	        选择元素指定范围内的值
+:invalid	            input:invalid	        选择所有无效的元素
+:last-child	            p:last-child	        选择所有p元素的最后一个子元素
+:last-of-type	        p:last-of-type	        选择每个p元素是其母元素的最后一个p元素
+:not(selector)	        :not(p)	                选择所有p以外的元素
+:nth-child(n)	        p:nth-child(2)	        选择所有p元素的第二个子元素
+:nth-last-child(n)	    p:nth-last-child(2)	    选择所有p元素倒数的第二个子元素
+:nth-last-of-type(n)	p:nth-last-of-type(2)	选择所有p元素倒数的第二个为p的子元素
+:nth-of-type(n)	        p:nth-of-type(2)	    选择所有p元素第二个为p的子元素
+:only-of-type	        p:only-of-type	        选择所有仅有一个子元素为p的元素
+:only-child	            p:only-child	        选择所有仅有一个子元素的p元素
+:optional	            input:optional	        选择没有"required"的元素属性
+:out-of-range	        input:out-of-range	    选择指定范围以外的值的元素属性
+:read-only	            input:read-only	        选择只读属性的元素属性
+:read-write	            input:read-write	    选择没有只读属性的元素属性
+:required	            input:required	        选择有"required"属性指定的元素属性
+:root	                root	                选择文档的根元素
+:target	                #news:target	        选择当前活动#news元素(点击URL包含锚的名字)
+:valid	                input:valid	            选择所有有效值的属性
+:link	                a:link	                选择所有未访问链接
+:visited	            a:visited	            选择所有访问过的链接
+:active	                a:active	            选择正在活动链接
+:hover	                a:hover	                把鼠标放在链接上的状态
+:focus	                input:focus	            选择元素输入后具有焦点
+:first-letter	        p:first-letter	        选择每个<p> 元素的第一个字母
+:first-line	            p:first-line	        选择每个<p> 元素的第一行
+:first-child	        p:first-child	        选择器匹配属于任意元素的第一个子元素的 <p> 元素
+:before	                p:before	            在每个<p>元素之前插入内容
+:after	                p:after	                在每个<p>元素之后插入内容
+:lang(language)	        p:lang(it)	            为<p>元素的lang属性选择一个开始值
