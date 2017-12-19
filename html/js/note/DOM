@@ -1,0 +1,73 @@
+document.getElementById("id");
+如果找到该元素，则该方法将以对象（在 x 中）的形式返回该元素。
+如果未找到该元素，则 x 将包含 null。
+
+document.getElementsByTagName("tag_name");
+document.getElementsByName("tag_name");
+document.getElementsByClass("class_name");
+返回的是一个对象数组
+
+document.write()
+可用于直接向 HTML 输出流写内容。
+
+document.getElementById(id).innerHTML = 新的HTML
+document.getElementById(id).attribute = 新属性值
+
+document.getElementById(id).style.property = 新样式
+
+<h1 onclick="changetext(this)">点击文本!</h1>
+this作为参数传给函数changetext()指向h1对象
+
+onload 和 onunload 事件会在用户进入或离开页面时被触发。
+<body onload="checkCookies()">
+<input type="text" id="fname" onchange="upperCase()">
+
+onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。
+onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。
+首先当点击鼠标按钮时，会触发 onmousedown 事件，当释放鼠标按钮时，会触发 onmouseup 事件，最后，当完成鼠标点击时，会触发 onclick 事件。
+
+document.getElementById("myBtn").addEventListener("click", displayDate);
+ddEventListener() 方法用于向指定元素添加事件句柄。
+addEventListener() 方法添加的事件句柄不会覆盖已存在的事件句柄。
+你可以向一个元素添加多个事件句柄。
+你可以向同个元素添加多个同类型的事件句柄，如：两个 "click" 事件。
+你可以向任何 DOM 对象添加事件监听，不仅仅是 HTML 元素。如： window 对象。
+addEventListener() 方法可以更简单的控制事件（冒泡与捕获）。
+当你使用 addEventListener() 方法时, JavaScript 从 HTML 标记中分离开来，可读性更强， 在没有控制HTML标记时也可以添加事件监听。
+你可以使用 removeEventListener() 方法来移除事件的监听。
+
+element.addEventListener(event, function, useCapture);
+第一个参数是事件的类型 (如 "click" 或 "mousedown").
+第二个参数是事件触发后调用的函数。
+第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。
+
+在 冒泡 中，内部元素的事件会先被触发，然后再触发外部元素，即： <p> 元素的点击事件先触发，然后会触发 <div> 元素的点击事件。
+在 捕获 中，外部元素的事件会先被触发，然后才会触发内部元素的事件，即： <div> 元素的点击事件先触发 ，然后再触发 <p> 元素的点击事件。
+
+创建新的 HTML 元素
+如需向 HTML DOM 添加新元素，您必须首先创建该元素（元素节点），然后向一个已存在的元素追加该元素。
+<div id="div1">
+<p id="p1">这是一个段落。</p>
+<p id="p2">这是另一个段落。</p>
+</div>
+<script>
+var para=document.createElement("p");
+var node=document.createTextNode("这是一个新段落。");
+para.appendChild(node);
+var element=document.getElementById("div1");
+element.appendChild(para);
+</script>
+
+删除已有的 HTML 元素
+<div id="div1">
+<p id="p1">这是一个段落。</p>
+<p id="p2">这是另一个段落。</p>
+</div>
+<script>
+var parent=document.getElementById("div1");
+var child=document.getElementById("p1");
+parent.removeChild(child);
+</script>
+
+如果能够在不引用父元素的情况下删除某个元素，就太好了。
+不过很遗憾。DOM 需要清楚您需要删除的元素，以及它的父元素。

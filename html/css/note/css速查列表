@@ -155,3 +155,15 @@ float	指定一个盒子（元素）是否可以浮动
 :before	                p:before	            在每个<p>元素之前插入内容
 :after	                p:after	                在每个<p>元素之后插入内容
 :lang(language)	        p:lang(it)	            为<p>元素的lang属性选择一个开始值
+
+CSS 媒体类型
+all	        用于所有的媒体设备。
+aural	    用于语音和音频合成器。
+braille	    用于盲人用点字法触觉回馈设备。
+embossed	用于分页的盲人用点字法打印机。
+handheld	用于小的手持的设备。
+print	    用于打印机。
+projection	用于方案展示，比如幻灯片。
+screen	    用于电脑显示器。
+tty	        用于使用固定密度字母栅格的媒体，比如电传打字机和终端。
+tv	        用于电视机类型的设备。

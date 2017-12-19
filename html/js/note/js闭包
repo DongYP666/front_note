@@ -1,0 +1,74 @@
+引例：一个计数器
+var sum = 0;
+
+function add() {
+    sum++;
+    console.log(sum);
+}
+
+add();//1
+add();//2
+add();//3
+
+这里有个问题就是sum变量在js的任何一个地方都可以进行修改，而希望只通过计数器函数来进行修改
+那么，希望sum变成一个局部变量
+
+function add() {
+    var sum = 0;
+    return sum += 1;
+}
+
+add();//1
+add();//1
+add();//1
+
+这样写虽然sum变成了一个局部变量,但是counter每次调用计数器函数都进行了初始化
+那么希望调用计数器函数共用一个局部变量
+
+function add() {
+	var sum = 0;
+    function plus() {
+        sum += 1;
+        console.log(sum);
+    }
+    plus();
+    return sum;
+}
+
+我们如果能在外部调用plus那么就可以解决计数器的困境
+我们就需要用到闭包了
+
+var add = (function () {
+    var sum = 0;
+    return function plus() {
+        return sum += 1;
+    };
+})();
+
+add();//1
+add();//2
+add();//3
+
+这里 add = function plus() { sum += 1; } 当调用add()的时候其实就是调用了内嵌函数
+如下也是对的
+
+function add() {
+    sum = 0;
+    this.plus = function () { //这个this指向 add() 的一个调用
+        sum++;
+        console.log(sum);
+    }
+}
+
+var obj = new add();
+obj.plus();
+obj.plus();
+obj.plus();
+
+目的都是为了能在函数的外部调用其内嵌函数对局部变量进行操作
+
+总结：闭包就是将函数内部和函数外部连接起来的一座桥梁。
+
+
+
+

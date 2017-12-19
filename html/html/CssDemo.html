@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../css/cssDemo.css">
+
+    <script src="../js/jsDemo.js?version=20171219"></script>
+    <script src="../js/jsClosure.js"></script>
+    <script src="../js/jsTest.js"></script>
+
 </head>
 <body>
     <div class="nav">
@@ -22,10 +27,21 @@
                 <div class="dropdown-content">
                     <a href="https://www.baidu.com/">傻逼邹鑫</a>
                     <a href="https://www.baidu.com/">傻逼邹鑫</a>
-                    <a href="https://www.baidu.com/">傻逼邹鑫</a>
+                    <a href="javascript:void(0)">傻逼邹鑫</a>
                 </div>
             </li>
         </ul>
     </div>
+    <div>
+        <p id="zx" style="float: left">邹鑫大傻逼</p>
+        <button style="margin-left: 20px" onclick="changeText()">死开</button>
+    </div>
+    <div>
+        <form name="form1" action="" onsubmit="verify()">
+            <input type="number" name="something" max="100" min="0">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+
 </body>
 </html>

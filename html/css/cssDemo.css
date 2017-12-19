@@ -49,17 +49,22 @@ a.active {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
+.tooltip {
+    position: relative;
+}
+
 .tooltip:hover .tooltip-content{
     display: block;
 }
 
 .tooltip-content {
-    position: relative;
+    position: absolute;
+    top: 40px;
     display: none;
     background-color: #dddddd;
     color: black;
     border-radius: 8px;
-    top: 10px;
+
 }
 
 .tooltip-content::after {
