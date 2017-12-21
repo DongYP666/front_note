@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jsBOM.js"></script>
+    <!--<script src="jsClosure.js"></script>-->
+    <!--<script src="jsContruct.js"></script>-->
+    <!--<script src="jsJson.js"></script>-->
+    <!--<script src="jsPrototype.js"></script>-->
+    <!--<script src="jsThis.js"></script>-->
+</head>
+<body>
+<div id="demo"></div>
+<script>
+    setInterval(myTimer);
+    function myTimer(){
+        var d=new Date();
+        var t=d.toLocaleTimeString();
+        document.getElementById("demo").innerHTML=t;
+    }
+</script>
+</body>
+</html>

@@ -1,3 +1,10 @@
+所有浏览器都支持 window 对象。它表示浏览器窗口。 --BOM（Browser Object Model (BOM)）
+所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+全局变量是 window 对象的属性。
+全局函数是 window 对象的方法。
+甚至 HTML DOM 的 document 也是 window 对象的属性之一
+
+DOM（Document Object Model (BOM)）
 document.getElementById("id");
 如果找到该元素，则该方法将以对象（在 x 中）的形式返回该元素。
 如果未找到该元素，则 x 将包含 null。

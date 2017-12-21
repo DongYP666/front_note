@@ -3,7 +3,6 @@
  */
 
 //为了理解闭包
-
 function add() {
     sum = 0;
     this.plus = function () { //这个this指向 add() 的一个调用
