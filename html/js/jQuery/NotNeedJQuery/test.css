@@ -1,0 +1,32 @@
+#dolphin {
+    display:none;
+}
+
+#addClass2 {
+    float: left;
+}
+
+.left-div {
+    width: 200px;
+    height: 200px;
+    line-height: 0px;
+    float: left; 
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
+
+.addClass {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    float: left;
+    background-color: #CCFFFF;
+}
+
+.contain {
+    clear: both;
+}

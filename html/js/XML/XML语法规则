@@ -1,0 +1,47 @@
+-------------- XML 语法规则 --------------
+
+XML 声明文件的可选部分，如果存在需要放在文档的第一行
+<?xml version="1.0" encoding="utf-8"?>
+
+XML 文档必须有根元素
+ML 必须包含根元素，它是所有其他元素的父元素
+<root>
+  <child>
+    <subchild>.....</subchild>
+  </child>
+</root>
+
+所有的 XML 元素都必须有一个关闭标签
+在 XML 中，省略关闭标签是非法的。所有元素都必须有关闭标签
+
+XML 标签对大小写敏感
+XML 标签对大小写敏感。标签 <Letter> 与标签 <letter> 是不同的
+
+XML 必须正确嵌套
+XML 属性值必须加引号
+
+实体引用
+在 XML 中，一些字符拥有特殊的意义。
+如果您把字符 "<" 放在 XML 元素中，会发生错误，这是因为解析器会把它当作新元素的开始。
+<message>if salary < 1000 then</message> //错误
+<message>if salary &lt; 1000 then</message> //正确
+
+在 XML 中，有 5 个预定义的实体引用：
+&lt;	<	less than
+&gt;	>	greater than
+&amp;	&	ampersand
+&apos;	'	apostrophe
+&quot;	"	quotation mark
+
+在 XML 中编写注释的语法与 HTML 的语法很相似。
+<!-- This is a comment -->
+
+HTML 会把多个连续的空格字符裁减（合并）为一个。
+在 XML 中，文档中的空格不会被删减。
+
+XML 以 LF 存储换行。
+在 Windows 应用程序中，换行通常以一对字符来存储：回车符（CR）和换行符（LF）。
+在 Unix 和 Mac OSX 中，使用 LF 来存储新行。
+在旧的 Mac 系统中，使用 CR 来存储新行。
+
+----------------------------------

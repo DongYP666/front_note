@@ -1,0 +1,180 @@
+jQuery是一个JavaScript函数库。
+
+jQuery的引入
+1.从 jquery.com 下载 jQuery 库
+2.从 CDN 中载入 jQuery, 如从 Google 中加载 jQuery
+
+两个版本
+Production version - 用于实际的网站中，已被精简和压缩。
+Development version - 用于测试和开发（未压缩，是可读的代码）
+
+所有 jQuery 函数位于一个 document ready 函数中：
+这是为了防止文档在完全加载（就绪）之前运行 jQuery 代码，即在 DOM 加载完成后才可以对 DOM 进行操作。
+$(document).ready(function(){
+   // 开始写 jQuery 代码...
+});
+等价写法：
+$(function(){
+   // 开始写 jQuery 代码...
+});
+
+$("#test") id选择器
+$(".test") class选择器
+
+$("*")	选取所有元素
+$(this)	选取当前 HTML 元素
+$("p.intro")	        选取 class 为 intro 的 <p> 元素
+$("p:first")	        选取第一个 <p> 元素
+$("ul li:first")	    选取第一个 <ul> 元素的第一个 <li> 元素
+$("ul li:first-child")	选取每个 <ul> 元素的第一个 <li> 元素
+$("[href]")	            选取带有 href 属性的元素
+$("a[target='_blank']")	选取所有 target 属性值等于 "_blank" 的 <a> 元素
+$("a[target!='_blank']")选取所有 target 属性值不等于 "_blank" 的 <a> 元素
+$(":button")	        选取所有 type="button" 的 <input> 元素 和 <button> 元素
+$("tr:even")	        选取偶数位置的 <tr> 元素
+$("tr:odd")	            选取奇数位置的 <tr> 元素
+
+常见的DOM事件
+鼠标事件
+click
+dblclick
+mouseenter
+mouseleave
+hover()     当鼠标移动到元素上时，会触发指定的第一个函数(mouseenter);当鼠标移出这个元素时，会触发指定的第二个函数(mouseleave)。
+
+键盘事件
+keypress
+keydown
+keyup
+
+表单事件
+submit
+change  当元素的值改变时发生 change 事件（仅适用于表单字段）
+focus   当元素获得焦点时（当通过鼠标点击选中元素或通过 tab 键定位到元素时），发生 focus 事件。
+blur    当元素失去焦点时发生 blur 事件。
+
+文档/窗口事件
+load    当指定的元素已加载时，会发生 load 事件。如果图片已缓存该事件则不会触发
+resize  当调整浏览器窗口大小时，发生 resize 事件。
+scroll  当用户滚动指定的元素时，会发生 scroll 事件。
+unload  当用户离开页面时，会发生 unload 事件。
+
+隐藏/显示事件
+$(selector).hide(speed,callback);   可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+$(selector).show(speed,callback);   可选的 callback 参数是隐藏或显示完成后所执行的函数名称。
+$(selector).toggle(speed,callback); 使用 toggle() 方法来切换 hide() 和 show() 方法。
+
+淡入淡出事件
+$(selector).fadeIn(speed,callback);
+$(selector).fadeOut(speed,callback);
+$(selector).fadeToggle(speed,callback);
+$(selector).fadeTo(speed,opacity,callback); opacity 参数将淡入淡出效果设置为给定的不透明度（值介于 0 与 1 之间）
+
+滑动事件
+$(selector).slideDown(speed,callback);
+$(selector).slideUp(speed,callback);
+$(selector).slideToggle(speed,callback);
+
+动画事件
+$(selector).animate({params},speed,callback);
+$(selector).stop(stopAll,goToEnd);  stop() 方法用于停止动画或效果
+可选的 stopAll 参数规定是否应该清除动画队列。默认是 false
+可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。
+
+方法链接
+有一种名为链接（chaining）的技术，允许我们在相同的元素上运行多条 jQuery 命令，一条接着另一条。
+$("#p1").css("color","red").slideUp(2000).slideDown(2000);
+
+DOM操作
+text() - 设置或返回所选元素的文本内容
+html() - 设置或返回所选元素的内容（包括 HTML 标记）
+val() - 设置或返回表单字段的值
+attr() - 方法用于获取属性值。
+
+$("#test").text()
+$("#test").html()
+$("#test").val()
+$("#runoob").attr("href")
+
+$("#test1").text(function(i,origText){
+    return "旧文本: " + origText + " 新文本: Hello world! (index: " + i + ")";
+});
+text(),html(),val(),attr() 提供回调函数。回调函数有两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。
+
+添加元素
+append()    - 在被选元素的结尾插入内容
+prepend()   - 在被选元素的开头插入内容
+after()     - 在被选元素之后插入内容
+before()    - 在被选元素之前插入内容
+
+var txt1="<p>文本。</p>";              // 使用 HTML 标签创建文本
+var txt2=$("<p></p>").text("文本。");  // 使用 jQuery 创建文本
+var txt3=document.createElement("p");
+txt3.innerHTML="文本。";               // 使用 DOM 创建文本 text with DOM
+$("body").append(txt1,txt2,txt3);     // 追加新元素
+
+删除元素
+remove() - 删除被选元素（及其子元素）
+empty()  - 从被选元素中删除子元素
+
+$("p").remove(".italic"); // 删除 class="italic" 的所有 <p> 元素：
+
+操作CSS
+addClass()      - 向被选元素添加一个或多个类
+removeClass()   - 从被选元素删除一个或多个类
+toggleClass()   - 对被选元素进行添加/删除类的切换操作
+css()           - 设置或返回样式属性
+
+.blue{
+    color:blue;
+}
+$("h1,h2,p").addClass("blue");
+
+$("h1,h2,p").removeClass("blue");
+
+$("h1,h2,p").toggleClass("blue");
+
+$("p").css("background-color"); //首个匹配元素的 background-color 值
+
+$("p").css("background-color","yellow"); //为所有匹配元素设置 background-color 值
+
+$("p").css({"background-color":"yellow","font-size":"200%"}); //设置多个 CSS 属性
+
+jQuery 尺寸方法
+width()         设置或返回元素的宽度（不包括内边距、边框或外边距）。
+height()        设置或返回元素的高度（不包括内边距、边框或外边距）。
+innerWidth()    返回元素的宽度（包括内边距）。
+innerHeight()   返回元素的高度（包括内边距）。
+outerWidth()    返回元素的宽度（包括内边距和边框）。
+outerHeight()   返回元素的高度（包括内边距和边框）。
+
+jQuery 遍历
+向上遍历 DOM 树
+parent()        返回被选元素的直接父元素
+parents()       返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)
+parentsUntil()  parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+
+$("span").parentsUntil("div");  返回介于 <span> 与 <div> 元素之间的所有祖先元素
+
+向下遍历 DOM 树
+children()      返回被选元素的所有直接子元素。
+find()          返回被选元素的后代元素，一路向下直到最后一个后代。
+
+$("div").find("*");     //返回 <div> 的所有后代
+$("div").find("span");  //返回属于 <div> 后代的所有 <span> 元素
+
+在 DOM 树中水平遍历
+siblings()  返回被选元素的所有同胞元素。
+next()      返回被选元素的下一个同胞元素。
+nextAll()   返回被选元素的所有跟随的同胞元素。
+nextUntil() 返回介于两个给定参数之间的所有跟随的同胞元素。
+prev()      返回被选元素的上一个同胞元素。
+prevAll()   返回被选元素之前的所有同胞元素。
+prevUntil() 返回介于两个给定参数之间的所有同胞元素。
+
+jQuery 遍历- 过滤
+first()     方法返回被选元素的首个元素。
+last()      方法返回被选元素的最后一个元素。
+eq()        方法返回被选元素中带有指定索引号的元素。
+filter()    方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。
+not()       方法返回不匹配标准的所有元素。
