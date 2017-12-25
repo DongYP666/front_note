@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: solid 5px red;
+            background-color: #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<script>
+    var obj = document.getElementsByClassName("container");
+    console.log(obj[0].children[0]);
+</script>
+</body>
+</html>

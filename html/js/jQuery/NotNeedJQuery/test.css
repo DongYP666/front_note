@@ -1,9 +1,6 @@
-#dolphin {
-    display:none;
-}
-
-#addClass2 {
-    float: left;
+div {
+    margin: 1px;
+    padding: 1px;
 }
 
 .left-div {
@@ -27,6 +24,15 @@
     background-color: #CCFFFF;
 }
 
-.contain {
-    clear: both;
+.clearfix {
+    overflow: hidden;
+    _zoom: 1;
+}
+
+#dolphin {
+    display:none;
+}
+
+#addClass2 {
+    float: left;
 }

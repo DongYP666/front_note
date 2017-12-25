@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            border: solid blue 5px;
+            padding: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: solid 5px red;
+            background-color: #aaaaaa;
+        }
+
+        .clearfloat:after {
+            display:block;
+            clear: both;
+            content:"";
+        }
+
+        .clearfloat {
+            /*兼容IE，清除浮动*/
+            zoom:1
+        }
+
+        .clearfix {
+            overflow: hidden;
+            _zoom: 1;
+        }
+    </style>
+</head>
+<body>
+<!--关于浮动-->
+<!--浮动出现的意义其实只是用来让文字环绕图片而已，仅此而已。而我们目前用浮动实现页面布局本不是浮动该干的事情-->
+<!--浮动元素会从普通文档流中脱离，但浮动元素影响的不仅是自己，它会影响周围的元素对齐进行环绕。-->
+
+<!--浮动元素的特性：不管一个元素是行内元素还是块级元素，如果被设置了浮动，那浮动元素会生成一个块级框，可以设置它的width和height，-->
+<!--因此float常常用于制作横向配列的菜单，可以设置大小并且横向排列。-->
+<!--1.浮动元素的浮动位置不能超过包含块的内边界-->
+<!--2.如果有多个浮动元素，浮动元素会按顺序排下来而不会发生重叠的现象-->
+<!--3.两个元素一个向左浮动，一个向右浮动:-->
+<!--（1）包含块的宽度大于两个浮动元素的宽度总和,两个元素一个向左浮动，一个向右浮动，井水不犯河水。-->
+<!--（2）包含块的宽度小于两个浮动元素的宽度总和,如果包含块宽度不够高，后面的浮动元素将会向下浮动，其顶端是前面浮动元素的底端。-->
+<div class="container" style="width: 400px">
+    <div class="box" style="float: left;width: 300px"></div>
+    <div class="box" style="float: right;width: 300px"></div>
+</div>
+<div class="container">
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+</div>
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<!--对于CSS的清除浮动(clear)，被清除元素的左侧和右侧均不允许出现浮动元素。-->
+
+<!--清除浮动-->
+<!--1.结尾处加空div标签 clear:both-->
+<div class="container">
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+    <div style="clear: both"></div>
+    <!--<br style="clear: both">-->
+</div>
+<!--2.父级div定义 伪类:after 和 zoom-->
+<div class="container clearfloat">
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+</div>
+<!--3.父级div定义 overflow:hidden-->
+<!--使用overflow:hidden时，浏览器会自动检查浮动区域的高度-->
+<div class="container clearfix">
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+</div>
+<!--4.父级div 也一起浮动-->
+<div class="container" style="float: left">
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+    <div class="box" style="float: left"></div>
+</div>
+</body>
+</html>
